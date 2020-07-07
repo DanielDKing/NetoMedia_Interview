@@ -29,7 +29,6 @@ app = Flask(__name__)
 @app.route('/',methods=['GET'])
 def hello_world():
     return "Hello World!", 200
-    #return "<marquee><h1>Hello World!<h1/><marquee/>"
 
 @app.route('/intense',methods=['GET'])
 def intense():
