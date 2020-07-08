@@ -16,7 +16,7 @@ def intense_cpu():
         t1 = threading.Thread(target=run)
         t1.start()
 
-    time.sleep(10)
+    time.sleep(60)
     global stop_threads
     stop_threads = True
     for thread in threads:
