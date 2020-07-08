@@ -16,7 +16,4 @@ if __name__ == '__main__':
     unittest.main()
 
 
-'''import requests
 
-res = requests.get("http://localhost:5000")
-assert "Hello World" in res.content.decode("utf-8")'''
