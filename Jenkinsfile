@@ -5,12 +5,12 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'pip install --user -r requirements.txt'
+        sh 'pip install --user -r ./app/requirements.txt'
       }
     }
     stage('test') {
       steps {
-        sh 'python unit_test.py'
+        sh 'python ./app/unit_test.py'
       }   
     }
   }
