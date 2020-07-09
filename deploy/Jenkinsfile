@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Deploy the application on kubernetes cluster') {
         steps{
-            sh "kubectl --insecure-skip-tls-verify=true apply -f /var/lib/jenkins/workspace/$JOB_NAME/kuberenetesResources/full-deployment.yml"
+            sh "/usr/local/bin/kubectl --insecure-skip-tls-verify=true apply -f /var/lib/jenkins/workspace/$JOB_NAME/kuberenetesResources/full-deployment.yml"
         }
     }
   }
