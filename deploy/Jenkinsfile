@@ -11,6 +11,7 @@ pipeline {
         ansiblePlaybook(
           playbook: './deploy/template.yml',
           extraVars: [
+			  buildId: '$BUILD_NUMBER',
               tagName: '$TAG_NAME',
               jobName: '$JOB_NAME'
           ])
