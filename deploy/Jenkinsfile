@@ -1,0 +1,25 @@
+pipeline {
+  agent any
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/DanielDKing/NetoMedia_Interview.git'
+      }
+    }
+    stage('Template the kubernetes creation yml ') {
+      steps{
+        ansiblePlaybook(
+          playbook: './deploy/template.yml',
+          extraVars: [
+              tagName: '${params.TAG_NAME}',
+              jobName: '${params.JOB_NAME}'
+          ])
+      }
+    }
+    stage('Deploy the application on kubernetes cluster') {
+        steps{
+            sh "kubectl --insecure-skip-tls-verify=true apply -f /var/lib/jenkins/workspace/$JOB_NAME/kuberenetesResources/full-deployment.yml"
+        }
+    }
+  }
+}

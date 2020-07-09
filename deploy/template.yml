@@ -1,0 +1,8 @@
+- hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: template the kubernetes creation yml
+    template:
+      src: "/var/lib/jenkins/workspace/{{jobName}}/deploy/flask-deployment.yml"
+      dest: "/var/lib/jenkins/workspace/{{jobName}}/deploy/flask-deployment.yml"
+      force: yes
