@@ -11,8 +11,8 @@ pipeline {
         ansiblePlaybook(
           playbook: './deploy/template.yml',
           extraVars: [
-              tagName: '${params.TAG_NAME}',
-              jobName: '${params.JOB_NAME}'
+              tagName: '$TAG_NAME',
+              jobName: '$JOB_NAME'
           ])
       }
     }
